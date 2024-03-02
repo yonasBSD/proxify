@@ -82,7 +82,7 @@ func ParseOptions() (*Options, error) {
 
 	flagSet.CreateGroup("update", "Update",
 		flagSet.CallbackVarP(GetUpdateCallback(), "update", "up", "update proxify to latest version"),
-		flagSet.BoolVarP(&options.DisableUpdateCheck, "disable-update-check", "duc", false, "disable automatic proxify update check"),
+		flagSet.BoolVarP(&options.DisableUpdateCheck, "disable-update-check", "duc", true, "disable automatic proxify update check"),
 	)
 
 	flagSet.CreateGroup("filter", "Filter",
@@ -122,7 +122,7 @@ func ParseOptions() (*Options, error) {
 
 	silent, verbose, veryVerbose := false, false, false
 	flagSet.CreateGroup("debug", "debug",
-		flagSet.BoolVarP(&options.NoColor, "no-color", "nc", true, "No Color"),
+		flagSet.BoolVarP(&options.NoColor, "no-color", "nc", false, "No Color"),
 		flagSet.BoolVar(&options.Version, "version", false, "Version"),
 		flagSet.BoolVar(&silent, "silent", false, "Silent"),
 		flagSet.BoolVarP(&verbose, "verbose", "v", false, "Verbose"),
